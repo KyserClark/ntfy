@@ -5,7 +5,7 @@
 #
 IP: eth0
 MESSAGE: 'Command Finished'
-PORT: '80'
+PORT: '8686'
 TOPIC: 'Topic'
 #
 # Please refer to the documentation at https://ntfy.sh/docs/config/ for details.
