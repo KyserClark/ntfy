@@ -16,7 +16,7 @@ unzip main.zip
 cd ntfy-main
 ```
 ```
-sudo bash install_ntfy.sh
+sudo bash install.sh
 ```
 Make sure you download the ntfy mobile app and configure it accordingly.   
 Essentially, all you have to do is point the server URL to your host IP address/port and create a topic, and you're off to the races.  
