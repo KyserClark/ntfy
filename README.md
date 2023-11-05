@@ -7,7 +7,7 @@ nfty was not created by Kyser Clark, but this tool makes ntfy easier to use, whi
 
 To install `ntfy`, run the following commands:
 ```
-wget https://github.com/KyserClark/nfty/archive/refs/heads/main.zip
+wget https://github.com/KyserClark/ntfy/archive/refs/heads/main.zip
 ```
 ```
 unzip main.zip
