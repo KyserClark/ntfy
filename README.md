@@ -21,7 +21,8 @@ sudo bash install.sh
 Make sure you download the ntfy mobile app and configure it accordingly.   
 Essentially, all you have to do is point the server URL to your host IP address/port and create a topic, and you're off to the races.   
   
-The IP should auto-resolve to your primary IP address that points to the internet. The port is 8686 by default. And the default topic is 'Topic'
+The IP should auto-resolve to your primary IP address that points to the internet. The port is 8686 by default. And the default topic is 'Topic'.  
+  
 If you don't like these defaults, feel free to change them. 
 I made it easy to change any of these values by doing --ip, --port, and --topic respectfully. 
 The default message is 'Command Finsihed'. You can change it with --message.
