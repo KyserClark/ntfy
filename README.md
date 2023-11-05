@@ -43,7 +43,6 @@ This tool has been tested on the following versions of Linux:
 * Kali Linux 2023.3
 * Ubuntu 22.04.3 LTS (Jammy Jellyfish)
 * Parrot OS Security Edtion 5.2 (Electro Ara)
-* Pop!_OS 22.04 LTS (NVIDIA)
 * Linux Mint 21.2 "Victoria" (Cinnamon Edition)
 
 ## Usage
@@ -81,10 +80,10 @@ sudo ntfy -t [TEMPORARY-TOPIC] -m [TEMPORARY-MESSAGE]
 ## Options
 * --start         Start the ntfy service
 * --stop          Stop the ntfy service
-* --ip            Set the IP address (can accept a valid interface name)
-* --port          Set the port
+* --ip            Set the IP address (can also accept a valid interface name)
+* --port          Set the listening port
 * --message       Set the default message to send
-* --topic         Set the default topic
+* --topic         Set the default topic to send
 * -m              Use a temporary message for the current command
 * -t              Use a temporary topic for the current command
 * --settings      Display current ntfy settings
