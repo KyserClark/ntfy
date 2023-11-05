@@ -1,7 +1,7 @@
 # ntfy
 
 Simplifying push notifications from your terminal, the `ntfy` tool is written by Kyser Clark to make it easier for everyone to send notifications with fewer keystrokes.
-ntft was not created by Kyser Clark, but this tool makes ntfy easier to use, which is why it's called `ntfy`.
+ntfy was not created by Kyser Clark, but this tool makes ntfy easier to use, which is why it's called `ntfy`.
 
 ## Installation
 
