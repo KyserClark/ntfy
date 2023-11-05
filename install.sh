@@ -10,6 +10,18 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# Update package list
+echo "Updating package list..."
+apt update
+
+# Install Docker, Python3, and pip
+echo "Installing dependencies: Docker, Python3, and pip..."
+apt install -y docker.io python3 python3-pip
+
+# Install Python packages with pip3
+echo "Installing Python packages: pyyaml and ruamel.yaml..."
+pip3 install pyyaml ruamel.yaml
+
 # Check if ntfy.sh exists in the current directory
 if [[ ! -f "ntfy.sh" ]]; then
     echo "Error: ntfy.sh not found! Please ensure it's in the current directory or provide the path."
