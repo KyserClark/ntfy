@@ -19,14 +19,22 @@ cd ntfy-main
 sudo bash install.sh
 ```
 Make sure you download the ntfy mobile app and configure it accordingly.   
-Essentially, all you have to do is point the server URL to your host IP address/port and create a topic, and you're off to the races.  
+Essentially, all you have to do is point the server URL to your host IP address/port and create a topic, and you're off to the races.   
+  
+The IP should auto-resolve to your primary IP address that points to the internet. The port is 8686 by default. And the default topic is 'Topic'
+If you don't like these defaults, feel free to change them. 
+I made it easy to change any of these values by doing --ip, --port, and --topic respectfully. 
+The default message is 'Command Finsihed'. You can change it with --message.
+Set temporary message and temporary topic with -m and -t respectfully. 
+  
 This tool is designed to self-host a docker container on your local area network (LAN).  
 If you run `ntfy` on a virtual machine (VM), ensure your VM is in bridge mode.   
 Otherwise, the ntfy server can't communicate with other devices on your network.  
   
 For more info, refer to NetworkChuck's video: [https://www.youtube.com/watch?v=poDIT2ruQ9M&ab_channel=NetworkChuck](https://www.youtube.com/watch?v=poDIT2ruQ9M&ab_channel=NetworkChuck)  
 This is where I first learned about and how to use ntfy. 
-My tool cuts down on keystrokes and makes it easier to setup and modify.  
+My tool cuts down on keystrokes and makes it easier to set up and modify. 
+   
 If you encounter any bugs or issues, please let me (Kyser Clark) know.   
 As of now, the install.sh file is for Debian-based systems. If you run a different version of Linux, you'll have to install dependencies manually.
 
@@ -58,13 +66,21 @@ Send a custom message or use a different topic if a command fails:
 ```
 Start tool with: 
 ```
-ntfy --start
+sudo ntfy --start
+```
+Change default settings with:
+```
+sudo ntfy --ip [IP-ADDRESS/INTERFACE] --port [PORT] --topic [CUSTOM-TOPIC] --message [CUSTOM-MESSAGE] 
+```
+Change temporary values with:
+```
+sudo ntfy -t [TEMPORARY-TOPIC] -m [TEMPORARY-MESSAGE]
 ```
 
 ## Options
 * --start         Start the ntfy service
 * --stop          Stop the ntfy service
-* --ip            Set the IP address
+* --ip            Set the IP address (can accept a valid interface name)
 * --port          Set the port
 * --message       Set the default message to send
 * --topic         Set the default topic
