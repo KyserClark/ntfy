@@ -31,8 +31,7 @@ update_base_url() {
   
   # Use sed to update the base-url in the /etc/ntfy/server.yml
   # and add error handling for permission denied or other sed errors.
-  if ! sed -i "s|^base-url:.*|base-url: ${new_base_url}|" "$CONFIG_FILE" 2>/dev/null; then
-    safe_echo "Permission denied, try using sudo."
+  if ! sed -i "s|^base-url:.*|base-url: ${new_base_url}|" "$CONFIG_FILE" > /dev/null 2>&1; then
     return 1
   fi
 }
@@ -41,7 +40,7 @@ update_base_url() {
 load_config() {
   # Defaults
   local eth0_ip="$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')"
-  local default_port="8686"
+  local default_port="80"
   local default_topic="Topic"
   local default_message="Command Finished"
 
@@ -195,6 +194,7 @@ usage() {
   safe_echo ""
   safe_echo "Typical usage: [command] && ntfy"
   safe_echo "Another example: [command] || ntfy -m 'Different Message' -t 'New_Topic'"
+  safe_echo "Start tool with: ntfy --start"
   safe_echo ""
   safe_echo "Options:"
   safe_echo "  --start         Start the ntfy service"
