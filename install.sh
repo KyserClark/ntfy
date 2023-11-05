@@ -22,6 +22,9 @@ apt install -y docker.io python3 python3-pip
 echo "Installing Python packages: pyyaml and ruamel.yaml..."
 pip3 install pyyaml ruamel.yaml
 
+# Install curl
+apt install curl
+
 # Check if ntfy.sh exists in the current directory
 if [[ ! -f "ntfy.sh" ]]; then
     echo "Error: ntfy.sh not found! Please ensure it's in the current directory or provide the path."
