@@ -50,7 +50,7 @@ Send a custom message or use a different topic if a command fails:
 ```
 Start tool with: 
 ```
-ntfy --start"
+ntfy --start
 ```
 
 ## Options
