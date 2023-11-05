@@ -74,7 +74,7 @@ sudo ntfy --ip [IP-ADDRESS/INTERFACE] --port [PORT] --topic [CUSTOM-TOPIC] --mes
 ```
 Change temporary values with:
 ```
-sudo ntfy -t [TEMPORARY-TOPIC] -m [TEMPORARY-MESSAGE]
+ntfy -t [TEMPORARY-TOPIC] -m [TEMPORARY-MESSAGE]
 ```
 
 ## Options
