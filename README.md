@@ -1,6 +1,7 @@
 # nfty
 
 Simplifying push notifications from your terminal, the `ntfy` tool is written by Kyser Clark to make it easier for everyone to send notifications with fewer keystrokes.
+nfty was not created by Kyser Clark, but this tool makes ntfy easier to use, which is why it's called `ntfy`.
 
 ## Installation
 
@@ -14,6 +15,13 @@ cd ntfy
 ```
 sudo bash install_ntfy.sh
 ```
+Make sure you download the mobile app and configure it accordingly.   
+Essentially, all you have to do is point the server URL to your host IP address/port and create a topic, and you're off to the races.  
+This tool is designed to self-host a docker container on your local area network (LAN).  
+For more info, refer to NetworkChuck's video: [https://www.youtube.com/watch?v=poDIT2ruQ9M&ab_channel=NetworkChuck](https://www.youtube.com/watch?v=poDIT2ruQ9M&ab_channel=NetworkChuck)  
+This is where I first learned about and how to use nfty. My tool cuts down on keystrokes and makes it easier to setup and modify.  
+If you encounter any bugs or issues, please let me (Kyser Clark) know.   
+This was only tested on Kali Linux 2023.3.  
 
 ## Usage
 Execute ntfy with options like so:  
