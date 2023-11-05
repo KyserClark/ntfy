@@ -25,7 +25,7 @@ The IP should auto-resolve to your primary IP address that points to the interne
   
 If you don't like these defaults, feel free to change them. 
 I made it easy to change any of these values by doing --ip, --port, and --topic respectfully. 
-The default message is 'Command Finsihed'. You can change it with --message.
+The default message is 'Command Finished'. You can change it with --message.
 Set temporary message and temporary topic with -m and -t respectfully. 
   
 This tool is designed to self-host a docker container on your local area network (LAN).  
