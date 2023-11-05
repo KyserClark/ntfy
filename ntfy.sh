@@ -55,7 +55,7 @@ load_config() {
       ip_is_eth0=true
       IP=$eth0_ip
       # Use sed to update the IP in the configuration file to the actual IP address
-      sed -i "s|^IP:.*|IP: $IP|" "$CONFIG_FILE"
+      sed -i "s|^IP:.*|IP: $IP|" "$CONFIG_FILE" > /dev/null 2>&1
     fi
     PORT=$(python -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("PORT", sys.argv[2]))' "$CONFIG_FILE" "$default_port")
     TOPIC=$(python -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("TOPIC", sys.argv[2]))' "$CONFIG_FILE" "$default_topic")
