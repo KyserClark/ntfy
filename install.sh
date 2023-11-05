@@ -23,7 +23,7 @@ echo "Installing Python packages: pyyaml and ruamel.yaml..."
 pip3 install pyyaml ruamel.yaml
 
 # Install curl
-apt install curl
+apt install curl -y
 
 # Check if ntfy.sh exists in the current directory
 if [[ ! -f "ntfy.sh" ]]; then
