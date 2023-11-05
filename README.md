@@ -48,6 +48,10 @@ Send a custom message or use a different topic if a command fails:
 [command] || ntfy -m 'Different Message' -t 'New_Topic'
 
 ```
+Start tool with: 
+```
+ntfy --start"
+```
 
 ## Options
 * --start         Start the ntfy service
