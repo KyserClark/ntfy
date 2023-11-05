@@ -199,7 +199,7 @@ usage() {
   safe_echo "Options:"
   safe_echo "  --start         Start the ntfy service"
   safe_echo "  --stop          Stop the ntfy service"
-  safe_echo "  --ip            Set the IP address"
+  safe_echo "  --ip            Set the IP address (can accept a valid interface name)"
   safe_echo "  --port          Set the port"
   safe_echo "  --message       Set the default message to send"
   safe_echo "  --topic         Set the default topic"
