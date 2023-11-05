@@ -15,13 +15,16 @@ cd ntfy
 ```
 sudo bash install_ntfy.sh
 ```
-Make sure you download the mobile app and configure it accordingly.   
+Make sure you download the nfty mobile app and configure it accordingly.   
 Essentially, all you have to do is point the server URL to your host IP address/port and create a topic, and you're off to the races.  
 This tool is designed to self-host a docker container on your local area network (LAN).  
+If you run `nfty` on a virtual machine (VM), ensure your VM is in bridge mode.   
+Otherwise, the nfty server can't communicate with other devices on your network. 
 For more info, refer to NetworkChuck's video: [https://www.youtube.com/watch?v=poDIT2ruQ9M&ab_channel=NetworkChuck](https://www.youtube.com/watch?v=poDIT2ruQ9M&ab_channel=NetworkChuck)  
-This is where I first learned about and how to use nfty. My tool cuts down on keystrokes and makes it easier to setup and modify.  
+This is where I first learned about and how to use nfty. 
+My tool cuts down on keystrokes and makes it easier to setup and modify.  
 If you encounter any bugs or issues, please let me (Kyser Clark) know.   
-This was only tested on Kali Linux 2023.3.  
+This was only tested on Kali Linux 2023.3
 
 ## Usage
 Execute ntfy with options like so:  
