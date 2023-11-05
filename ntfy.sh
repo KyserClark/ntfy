@@ -21,9 +21,9 @@ safe_echo() {
 
 # Function to update ntfy server base-url
 update_base_url() {
-  # Check if IP is "eth0" and resolve to the actual IP address
-  if [ "$IP" = "eth0" ]; then
-    IP="$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')"
+# Check if IP is "0.0.0.0" and resolve to the actual IP address
+  if [ "$IP" = "0.0.0.0" ]; then
+    IP="$(ip route get 1.2.3.4 | awk '{print $7}' | head -n 1)"
   fi
 
   # Build the new base URL with the current IP and PORT
@@ -31,7 +31,7 @@ update_base_url() {
   
   # Use sed to update the base-url in the /etc/ntfy/server.yml
   # and add error handling for permission denied or other sed errors.
-  if ! sed -i "s|^base-url:.*|base-url: ${new_base_url}|" "$CONFIG_FILE" > /dev/null 2>&1; then
+  if ! sed -i "s|^[[:space:]]*base-url:.*|base-url: ${new_base_url}|I" "$CONFIG_FILE" > /dev/null 2>&1; then
     return 1
   fi
 }
@@ -39,42 +39,42 @@ update_base_url() {
 # Function to load configuration or use defaults
 load_config() {
   # Defaults
-  local eth0_ip="$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')"
+  local default_ip="$(ip route get 1.2.3.4 | awk '{print $7}' | head -n 1)"
   local default_port="80"
   local default_topic="Topic"
   local default_message="Command Finished"
 
   # Assume CONFIG_FILE is the path to your YAML configuration file
   local config_exists=false
-  local ip_is_eth0=false
+  local ip_is_default=false
 
   if [ -f "$CONFIG_FILE" ]; then
     config_exists=true
-    IP=$(python -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("IP", "eth0"))' "$CONFIG_FILE")
-    if [ "$IP" = "eth0" ]; then
-      ip_is_eth0=true
-      IP=$eth0_ip
-      # Use sed to update the IP in the configuration file to the actual IP address
-      sed -i "s|^IP:.*|IP: $IP|" "$CONFIG_FILE" > /dev/null 2>&1
+    IP=$(python3 -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("IP", "0.0.0.0"))' "$CONFIG_FILE")
+    if [ "$IP" = "0.0.0.0" ]; then
+  IP=$(ip route get 1.2.3.4 | awk '{print $7}' | head -n 1)
+  ip_is_default=true
+  # Use sed to update the IP in the configuration file to the actual IP address
+  sed -i "s|^IP:.*|IP: $IP|" "$CONFIG_FILE" > /dev/null 2>&1
     fi
-    PORT=$(python -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("PORT", sys.argv[2]))' "$CONFIG_FILE" "$default_port")
-    TOPIC=$(python -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("TOPIC", sys.argv[2]))' "$CONFIG_FILE" "$default_topic")
-    MESSAGE=$(python -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("MESSAGE", sys.argv[2]))' "$CONFIG_FILE" "$default_message")
+    PORT=$(python3 -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("PORT", sys.argv[2]))' "$CONFIG_FILE" "$default_port")
+    TOPIC=$(python3 -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("TOPIC", sys.argv[2]))' "$CONFIG_FILE" "$default_topic")
+    MESSAGE=$(python3 -c 'import yaml, sys; config = yaml.safe_load(open(sys.argv[1])); print(config.get("MESSAGE", sys.argv[2]))' "$CONFIG_FILE" "$default_message")
   else
-    IP=$eth0_ip
+    IP=$default_ip
     PORT=$default_port
     TOPIC=$default_topic
     MESSAGE=$default_message
   fi
 
-  # If the IP was originally "eth0", update the base-url accordingly
-  if [ "$config_exists" = true ] && [ "$ip_is_eth0" = true ]; then
-    update_base_url # This will use the global IP and PORT variables updated above
+  # If the IP was originally "0.0.0.0", update the base-url accordingly
+  if [ "$config_exists" = true ] && [ "$ip_is_default" = true ]; then
+  update_base_url # This will use the global IP and PORT variables updated above
   fi
 }
 
 save_config() {
-  if ! python -c 'import sys
+  if ! python3 -c 'import sys
 from ruamel.yaml import YAML
 yaml = YAML()
 yaml.preserve_quotes = True
