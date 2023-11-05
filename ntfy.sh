@@ -41,7 +41,7 @@ update_base_url() {
 load_config() {
   # Defaults
   local eth0_ip="$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')"
-  local default_port="80"
+  local default_port="8686"
   local default_topic="Topic"
   local default_message="Command Finished"
 
