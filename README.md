@@ -59,7 +59,7 @@ Run a command and send a notification if successful:
 [command] && ntfy
 ```
 
-Send a custom message or use a different topic if a command fails:
+Send a custom message and use a different topic if a command fails:
 ```
 [command] || ntfy -m 'Different Message' -t 'New_Topic'
 
