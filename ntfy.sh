@@ -187,7 +187,7 @@ stop_ntfy() {
 # Function to display usage
 usage() {
   SHOULD_NOTIFY=false
-  safe_echo "ntfy tool written by Kyser Clark to make ntfy more usable and easier for everyone to send push notifications"
+  safe_echo "ntfy tool written by Kyser Clark to make ntfy more usable and easier for everyone to send push notifications."
   safe_echo "from their terminal with fewer keystrokes."
   safe_echo ""
   safe_echo "Usage: ntfy [options]"
@@ -195,6 +195,8 @@ usage() {
   safe_echo "Typical usage: [command] && ntfy"
   safe_echo "Another example: [command] || ntfy -m 'Different Message' -t 'New_Topic'"
   safe_echo "Start tool with: sudo ntfy --start"
+  safe_echo ""
+  safe_echo "If you are running this tool in a virtual machine (VM), ensure your your network interface is in bridged mode."
   safe_echo ""
   safe_echo "Options:"
   safe_echo "  --start         Start the ntfy service"
