@@ -93,6 +93,6 @@ ntfy -t [TEMPORARY-TOPIC] -m [TEMPORARY-MESSAGE]
 
 Kyser Clark is an experienced cybersecurity professional. For a full bio check out these locations:
 
-* Website: KyserClark.com
-* GitHub: @KyserClark
-* LinkedIn: linkedin.com/in/KyserClark
+* Website: [KyserClark.com](KyserClark.com)
+* GitHub: [@KyserClark](github.com/KyserClark)
+* LinkedIn: [linkedin.com/in/KyserClark](linkedin.com/in/KyserClark)
