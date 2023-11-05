@@ -3,7 +3,7 @@
 # This first section is custom settings for Kyser Clark's ntfy cli tool; you can change these by
 # using the ntfy tool in your terminal. -- Kyser
 #
-IP: eth0
+IP: 0.0.0.0
 MESSAGE: 'Command Finished'
 PORT: '8686'
 TOPIC: 'Topic'
@@ -19,7 +19,7 @@ TOPIC: 'Topic'
 # - iOS push notifications for self-hosted servers (to calculate the Firebase poll_request topic)
 # - Matrix Push Gateway (to validate that the pushkey is correct)
 #
-base-url: http://eth0
+base-url: http://0.0.0.0:8686
 #
 # base-url turned off by default, but turned on by Kyser Clark's ntfy tool. -- Kyser
 
