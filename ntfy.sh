@@ -194,7 +194,7 @@ usage() {
   safe_echo ""
   safe_echo "Typical usage: [command] && ntfy"
   safe_echo "Another example: [command] || ntfy -m 'Different Message' -t 'New_Topic'"
-  safe_echo "Start tool with: ntfy --start"
+  safe_echo "Start tool with: sudo ntfy --start"
   safe_echo ""
   safe_echo "Options:"
   safe_echo "  --start         Start the ntfy service"
@@ -352,7 +352,6 @@ fi
   fi
   validate_topic "$1"
   TEMP_TOPIC="$1"
-  safe_echo "temp topic is $TEMP_TOPIC"
   shift # Shift again after capturing the topic name, to proceed to the next argument
   ;;
     --start)
