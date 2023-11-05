@@ -138,7 +138,7 @@ start_ntfy() {
             safe_echo "Failed to start ntfy service. Error code: $run_exit_status."
             return 1
         fi
-        safe_echo "ntfy service container started at $IP:$PORT"
+        safe_echo "ntfy service container started at http://$IP:$PORT"
     else
         safe_echo "A ntfy service container with name '$NTFY_CONTAINER_NAME' already exists."
     fi
